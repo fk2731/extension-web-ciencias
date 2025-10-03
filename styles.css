@@ -1,210 +1,176 @@
-/* Facultad de Ciencias Customizer - Main Styles */
-/* Only apply when extension is active */
+/* Estilos de prueba pa ver que show */
 body.fciencias-customizer-active {
-	/* Global page styles */
 	background: #1a1a1a !important;
 	color: #e0e0e0 !important;
 	font-family: "Segoe UI", "Roboto", Arial, sans-serif !important;
 	line-height: 1.6 !important;
-}
 
-/* Header and Navigation */
-body.fciencias-customizer-active header,
-body.fciencias-customizer-active nav,
-body.fciencias-customizer-active .navbar,
-body.fciencias-customizer-active .header {
-	background: linear-gradient(135deg, #2c3e50, #34495e) !important;
-	border-bottom: 2px solid #3498db !important;
-}
+	body.fciencias-customizer-active header,
+	body.fciencias-customizer-active nav,
+	body.fciencias-customizer-active .navbar,
+	body.fciencias-customizer-active .header {
+		background: linear-gradient(135deg, #2c3e50, #34495e) !important;
+		border-bottom: 2px solid #3498db !important;
+	}
 
-/* Main content areas */
-body.fciencias-customizer-active main,
-body.fciencias-customizer-active .content,
-body.fciencias-customizer-active .main-content {
-	background: #2d2d2d !important;
-	border-radius: 8px !important;
-	margin: 20px !important;
-	padding: 20px !important;
-	box-shadow: 0 4px 6px rgba(0, 0, 0, 0.3) !important;
-}
+	body.fciencias-customizer-active main,
+	body.fciencias-customizer-active .content,
+	body.fciencias-customizer-active .main-content {
+		background: #2d2d2d !important;
+		border-radius: 8px !important;
+		margin: 20px !important;
+		padding: 20px !important;
+		box-shadow: 0 4px 6px rgba(0, 0, 0, 0.3) !important;
+	}
 
-/* Forms and inputs */
-body.fciencias-customizer-active input,
-body.fciencias-customizer-active textarea,
-body.fciencias-customizer-active select {
-	background: #404040 !important;
-	border: 2px solid #555 !important;
-	border-radius: 6px !important;
-	color: #fff !important;
-	padding: 10px !important;
-	font-size: 14px !important;
-	transition: border-color 0.3s ease !important;
-}
+	body.fciencias-customizer-active input,
+	body.fciencias-customizer-active textarea,
+	body.fciencias-customizer-active select {
+		background: #404040 !important;
+		border: 2px solid #555 !important;
+		border-radius: 6px !important;
+		color: #fff !important;
+		padding: 10px !important;
+		font-size: 14px !important;
+		transition: border-color 0.3s ease !important;
+	}
 
-body.fciencias-customizer-active input:focus,
-body.fciencias-customizer-active textarea:focus,
-body.fciencias-customizer-active select:focus {
-	border-color: #3498db !important;
-	outline: none !important;
-	box-shadow: 0 0 0 3px rgba(52, 152, 219, 0.2) !important;
-}
+	body.fciencias-customizer-active input:focus,
+	body.fciencias-customizer-active textarea:focus,
+	body.fciencias-customizer-active select:focus {
+		border-color: #3498db !important;
+		outline: none !important;
+		box-shadow: 0 0 0 3px rgba(52, 152, 219, 0.2) !important;
+	}
 
-/* Buttons */
-body.fciencias-customizer-active button,
-body.fciencias-customizer-active .btn,
-body.fciencias-customizer-active input[type="submit"] {
-	background: linear-gradient(135deg, #3498db, #2980b9) !important;
-	border: none !important;
-	border-radius: 6px !important;
-	color: white !important;
-	padding: 12px 20px !important;
-	font-weight: 500 !important;
-	cursor: pointer !important;
-	transition: all 0.3s ease !important;
-}
+	/* botones */
+	body.fciencias-customizer-active button,
+	body.fciencias-customizer-active .btn,
+	body.fciencias-customizer-active input[type="submit"] {
+		background: linear-gradient(135deg, #3498db, #2980b9) !important;
+		border: none !important;
+		border-radius: 6px !important;
+		color: white !important;
+		padding: 12px 20px !important;
+		font-weight: 500 !important;
+		cursor: pointer !important;
+		transition: all 0.3s ease !important;
+	}
 
-body.fciencias-customizer-active button:hover,
-body.fciencias-customizer-active .btn:hover,
-body.fciencias-customizer-active input[type="submit"]:hover {
-	background: linear-gradient(135deg, #2980b9, #21618c) !important;
-	transform: translateY(-2px) !important;
-	box-shadow: 0 4px 8px rgba(0, 0, 0, 0.3) !important;
-}
+	body.fciencias-customizer-active button:hover,
+	body.fciencias-customizer-active .btn:hover,
+	body.fciencias-customizer-active input[type="submit"]:hover {
+		background: linear-gradient(135deg, #2980b9, #21618c) !important;
+		transform: translateY(-2px) !important;
+		box-shadow: 0 4px 8px rgba(0, 0, 0, 0.3) !important;
+	}
 
-/* Links */
-body.fciencias-customizer-active a {
-	color: #5dade2 !important;
-	text-decoration: none !important;
-	transition: color 0.3s ease !important;
-}
+	/* Links */
+	body.fciencias-customizer-active a {
+		color: #5dade2 !important;
+		text-decoration: none !important;
+		transition: color 0.3s ease !important;
+	}
 
-body.fciencias-customizer-active a:hover {
-	color: #85c1e9 !important;
-	text-decoration: underline !important;
-}
+	body.fciencias-customizer-active a:hover {
+		color: #85c1e9 !important;
+		text-decoration: underline !important;
+	}
 
-/* Tables */
-body.fciencias-customizer-active table {
-	background: #2d2d2d !important;
-	border-collapse: collapse !important;
-	width: 100% !important;
-	border-radius: 8px !important;
-	overflow: hidden !important;
-}
+	/* tablas */
+	body.fciencias-customizer-active table {
+		background: #2d2d2d !important;
+		border-collapse: collapse !important;
+		width: 100% !important;
+		border-radius: 8px !important;
+		overflow: hidden !important;
+	}
 
-body.fciencias-customizer-active th,
-body.fciencias-customizer-active td {
-	border: 1px solid #555 !important;
-	padding: 12px !important;
-	text-align: left !important;
-}
+	body.fciencias-customizer-active th,
+	body.fciencias-customizer-active td {
+		border: 1px solid #555 !important;
+		padding: 12px !important;
+		text-align: left !important;
+	}
 
-body.fciencias-customizer-active th {
-	background: #34495e !important;
-	color: #ecf0f1 !important;
-	font-weight: 600 !important;
-}
+	body.fciencias-customizer-active th {
+		background: #34495e !important;
+		color: #ecf0f1 !important;
+		font-weight: 600 !important;
+	}
 
-body.fciencias-customizer-active tr:nth-child(even) {
-	background: #3d3d3d !important;
-}
+	body.fciencias-customizer-active tr:nth-child(even) {
+		background: #3d3d3d !important;
+	}
 
-/* Cards and containers */
-body.fciencias-customizer-active .card,
-body.fciencias-customizer-active .panel,
-body.fciencias-customizer-active .container {
-	background: #2d2d2d !important;
-	border: 1px solid #555 !important;
-	border-radius: 8px !important;
-	padding: 20px !important;
-	margin: 15px 0 !important;
-	box-shadow: 0 2px 4px rgba(0, 0, 0, 0.2) !important;
-}
+	/* contenedores */
+	body.fciencias-customizer-active .card,
+	body.fciencias-customizer-active .panel,
+	body.fciencias-customizer-active .container {
+		background: #2d2d2d !important;
+		border: 1px solid #555 !important;
+		border-radius: 8px !important;
+		padding: 20px !important;
+		margin: 15px 0 !important;
+		box-shadow: 0 2px 4px rgba(0, 0, 0, 0.2) !important;
+	}
 
-/* Footer */
-body.fciencias-customizer-active footer {
-	background: linear-gradient(135deg, #2c3e50, #34495e) !important;
-	color: #bdc3c7 !important;
-	border-top: 2px solid #3498db !important;
-	padding: 20px !important;
-}
+	/* el footer */
+	body.fciencias-customizer-active footer {
+		background: linear-gradient(135deg, #2c3e50, #34495e) !important;
+		color: #bdc3c7 !important;
+		border-top: 2px solid #3498db !important;
+		padding: 20px !important;
+	}
 
-/* Sidebar (if exists) */
-body.fciencias-customizer-active .sidebar,
-body.fciencias-customizer-active aside {
-	background: #2d2d2d !important;
-	border-right: 1px solid #555 !important;
-	padding: 20px !important;
-}
+	/* alertas */
+	body.fciencias-customizer-active .alert,
+	body.fciencias-customizer-active .notification {
+		border-radius: 6px !important;
+		padding: 15px !important;
+		margin: 10px 0 !important;
+	}
 
-/* Loading indicators and alerts */
-body.fciencias-customizer-active .alert,
-body.fciencias-customizer-active .notification {
-	border-radius: 6px !important;
-	padding: 15px !important;
-	margin: 10px 0 !important;
-}
+	body.fciencias-customizer-active .alert-success {
+		background: #27ae60 !important;
+		color: white !important;
+		border: none !important;
+	}
 
-body.fciencias-customizer-active .alert-success {
-	background: #27ae60 !important;
-	color: white !important;
-	border: none !important;
-}
+	body.fciencias-customizer-active .alert-error,
+	body.fciencias-customizer-active .alert-danger {
+		background: #e74c3c !important;
+		color: white !important;
+		border: none !important;
+	}
 
-body.fciencias-customizer-active .alert-error,
-body.fciencias-customizer-active .alert-danger {
-	background: #e74c3c !important;
-	color: white !important;
-	border: none !important;
-}
+	body.fciencias-customizer-active .alert-warning {
+		background: #f39c12 !important;
+		color: white !important;
+		border: none !important;
+	}
 
-body.fciencias-customizer-active .alert-warning {
-	background: #f39c12 !important;
-	color: white !important;
-	border: none !important;
-}
+	body.fciencias-customizer-active .alert-info {
+		background: #3498db !important;
+		color: white !important;
+		border: none !important;
+	}
 
-body.fciencias-customizer-active .alert-info {
-	background: #3498db !important;
-	color: white !important;
-	border: none !important;
-}
+	/* Scrollbars */
+	body.fciencias-customizer-active ::-webkit-scrollbar {
+		width: 12px !important;
+	}
 
-/* Scrollbars (Webkit browsers) */
-body.fciencias-customizer-active ::-webkit-scrollbar {
-	width: 12px !important;
-}
+	body.fciencias-customizer-active ::-webkit-scrollbar-track {
+		background: #2d2d2d !important;
+	}
 
-body.fciencias-customizer-active ::-webkit-scrollbar-track {
-	background: #2d2d2d !important;
-}
+	body.fciencias-customizer-active ::-webkit-scrollbar-thumb {
+		background: #555 !important;
+		border-radius: 6px !important;
+	}
 
-body.fciencias-customizer-active ::-webkit-scrollbar-thumb {
-	background: #555 !important;
-	border-radius: 6px !important;
+	body.fciencias-customizer-active ::-webkit-scrollbar-thumb:hover {
+		background: #666 !important;
+	}
 }
-
-body.fciencias-customizer-active ::-webkit-scrollbar-thumb:hover {
-	background: #666 !important;
-}
-
-/*
-  TODO: Add site-specific selectors
-  
-  To customize specific elements on web.fciencias.unam.mx:
-  1. Inspect the website to find specific class names and IDs
-  2. Add targeted selectors below
-  3. Examples:
-  
-  body.fciencias-customizer-active #specific-header {
-    background: your-color !important;
-  }
-  
-  body.fciencias-customizer-active .login-form {
-    border: 2px solid #3498db !important;
-  }
-  
-  body.fciencias-customizer-active .menu-item {
-    color: #5dade2 !important;
-  }
-*/

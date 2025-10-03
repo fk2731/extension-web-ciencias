@@ -1,14 +1,9 @@
-// Web Ciencias Customizer - Simple Popup Script
-
 document.addEventListener("DOMContentLoaded", function () {
 	console.log("Web Ciencias Customizer popup loaded");
-
-	// Initialize UI elements
-	initializeUI();
+    initializeUI();
 });
 
 function initializeUI() {
-	// Get references to UI elements
 	const elements = {
 		statusText: document.getElementById("status-text"),
 		statusDot: document.getElementById("status-dot"),
@@ -19,7 +14,7 @@ function initializeUI() {
 		githubLink: document.getElementById("github-link"),
 	};
 
-	// Check current tab and setup
+    // pa ver si el sitio es fciencias o ne
 	chrome.tabs.query({ active: true, currentWindow: true }, function (tabs) {
 		const currentTab = tabs[0];
 		const isTargetSite =
@@ -30,12 +25,11 @@ function initializeUI() {
 	});
 }
 
+// Errores y cosas a mostrar si no es fciencias
 function setupInterface(elements, isTargetSite, currentTab) {
 	if (isTargetSite) {
-		// Site is compatible - hide warning
 		elements.warningSection.classList.remove("show");
 
-		// Check extension status
 		chrome.tabs.sendMessage(
 			currentTab.id,
 			{ action: "getStatus" },
@@ -51,7 +45,6 @@ function setupInterface(elements, isTargetSite, currentTab) {
 			}
 		);
 	} else {
-		// Site is not compatible - show warning
 		elements.warningSection.classList.add("show");
 		updateExtensionStatus(elements, false);
 		elements.toggleText.textContent = "Ir al Sitio";
@@ -74,17 +67,14 @@ function updateExtensionStatus(elements, enabled) {
 }
 
 function setupEventListeners(elements, isTargetSite) {
-	// Toggle button
 	elements.toggleButton.addEventListener("click", function () {
 		handleToggleClick(elements, isTargetSite);
 	});
 
-	// Reset button
 	elements.resetButton.addEventListener("click", function () {
 		handleResetClick(elements, isTargetSite);
 	});
 
-	// GitHub link
 	elements.githubLink.addEventListener("click", function (e) {
 		e.preventDefault();
 		chrome.tabs.create({
@@ -95,13 +85,11 @@ function setupEventListeners(elements, isTargetSite) {
 
 function handleToggleClick(elements, isTargetSite) {
 	if (!isTargetSite) {
-		// Open target website
 		chrome.tabs.create({ url: "https://web.fciencias.unam.mx/" });
 		window.close();
 		return;
 	}
 
-	// Toggle extension on current tab
 	chrome.tabs.query({ active: true, currentWindow: true }, function (tabs) {
 		chrome.tabs.sendMessage(
 			tabs[0].id,

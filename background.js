@@ -1,30 +1,21 @@
-// Background script for Facultad de Ciencias Customizer
 console.log("Background script loaded");
 
-// Initialize extension on install
 chrome.runtime.onInstalled.addListener(function (details) {
 	console.log("Extension installed/updated:", details.reason);
 
 	if (details.reason === "install") {
-		// Set default settings
 		chrome.storage.sync.set({
 			extensionEnabled: true,
-			customTheme: "dark", // You can add theme options later
+			customTheme: "dark",
 			version: chrome.runtime.getManifest().version,
 		});
-
-		// Optionally open options page or welcome page
-		// chrome.tabs.create({url: 'welcome.html'});
 	}
 });
 
-// Handle extension icon click (backup, popup should handle this)
 chrome.action.onClicked.addListener(function (tab) {
 	console.log("Extension icon clicked on tab:", tab.url);
 
-	// Check if we're on the target site
 	if (tab.url && tab.url.includes("web.fciencias.unam.mx")) {
-		// Send message to content script
 		chrome.tabs.sendMessage(
 			tab.id,
 			{ action: "toggle" },
@@ -40,12 +31,10 @@ chrome.action.onClicked.addListener(function (tab) {
 			}
 		);
 	} else {
-		// Open the target website
 		chrome.tabs.create({ url: "https://web.fciencias.unam.mx/" });
 	}
 });
 
-// Handle messages from content script or popup
 chrome.runtime.onMessage.addListener(function (request, sender, sendResponse) {
 	console.log("Background received message:", request);
 
@@ -54,7 +43,7 @@ chrome.runtime.onMessage.addListener(function (request, sender, sendResponse) {
 			chrome.storage.sync.get(null, function (settings) {
 				sendResponse(settings);
 			});
-			return true; // Keep channel open for async response
+			return true;
 
 		case "saveSettings":
 			chrome.storage.sync.set(request.settings, function () {
@@ -63,7 +52,7 @@ chrome.runtime.onMessage.addListener(function (request, sender, sendResponse) {
 			return true;
 
 		case "openOptionsPage":
-			// If you create an options page later
+			// para cuando ponga las opciones o los temas
 			// chrome.runtime.openOptionsPage();
 			sendResponse({ message: "Options page not implemented yet" });
 			break;
@@ -74,7 +63,6 @@ chrome.runtime.onMessage.addListener(function (request, sender, sendResponse) {
 	}
 });
 
-// Optional: Badge text to show extension status
 chrome.tabs.onActivated.addListener(function (activeInfo) {
 	chrome.tabs.get(activeInfo.tabId, function (tab) {
 		if (tab.url && tab.url.includes("web.fciencias.unam.mx")) {
