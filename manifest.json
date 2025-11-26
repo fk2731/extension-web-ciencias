@@ -3,6 +3,12 @@
   "name": "UNAM Ciencias - Personalizador Visual",
   "description": "Mejora la experiencia visual del portal de servicios estudiantiles de la Facultad de Ciencias UNAM. Privacidad garantizada: sin recopilación de datos.",
   "version": "1.0.0",
+  "browser_specific_settings": {
+    "gecko": {
+      "id": "unam-ciencias-personalizador@fciencias.unam.mx",
+      "strict_min_version": "109.0"
+    }
+  },
   "icons": {
     "16": "icon-16.jpg",
     "32": "icon-32.jpg",
@@ -34,7 +40,8 @@
     }
   },
   "background": {
-    "service_worker": "background.js"
+    "service_worker": "background.js",
+    "scripts": ["background.js"]
   },
   "permissions": [
     "activeTab",
