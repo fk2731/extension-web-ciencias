@@ -7,18 +7,22 @@
 body.fciencias-customizer-active {
 	background: #f5f5f5 !important;
 	color: #333333 !important;
-	font-family: "Segoe UI", "Roboto", -apple-system, BlinkMacSystemFont, Arial, sans-serif !important;
+	font-family: "Segoe UI", "Roboto", -apple-system, BlinkMacSystemFont, Arial,
+		sans-serif !important;
 	line-height: 1.6 !important;
 	margin: 0 !important;
 	padding: 0 !important;
+	width: 100% !important;
+	overflow-x: hidden !important;
 }
 
 /* Container & Layout */
 body.fciencias-customizer-active #contenedor {
-	max-width: 1400px !important;
-	margin: 0 auto !important;
+	max-width: 100% !important;
+	width: 100% !important;
+	margin: 0 !important;
 	background: #ffffff !important;
-	box-shadow: 0 0 30px rgba(0, 0, 0, 0.1) !important;
+	box-shadow: none !important;
 }
 
 body.fciencias-customizer-active #contenedor-sombras-encabezado,
@@ -29,12 +33,14 @@ body.fciencias-customizer-active #contenedor-sombras-pie {
 /* Header Styles - Keep original layout */
 body.fciencias-customizer-active #encabezado {
 	background: linear-gradient(135deg, #003d7a, #0056a3) !important;
-	padding: 16px 24px !important;
+	padding: 16px 40px !important;
 	display: flex !important;
 	align-items: center !important;
 	justify-content: flex-start !important;
 	gap: 16px !important;
 	box-shadow: 0 2px 8px rgba(0, 0, 0, 0.15) !important;
+	width: 100% !important;
+	box-sizing: border-box !important;
 }
 
 body.fciencias-customizer-active #encabezado a,
@@ -61,29 +67,40 @@ body.fciencias-customizer-active #imagerotator {
 /* Navigation - UNAM Gold */
 body.fciencias-customizer-active #navegacion {
 	background: linear-gradient(135deg, #fdb913, #ffcc33) !important;
-	padding: 10px 24px !important;
+	padding: 12px 40px !important;
 	margin: 0 !important;
 	box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1) !important;
+	width: 100% !important;
+	box-sizing: border-box !important;
+	min-height: 50px !important;
 }
 
 body.fciencias-customizer-active #navegacion p {
 	margin: 0 !important;
 	text-align: center !important;
 	font-size: 14px !important;
+	display: flex !important;
+	flex-wrap: wrap !important;
+	justify-content: center !important;
+	align-items: center !important;
+	gap: 4px !important;
+	min-height: 30px !important;
 }
 
 body.fciencias-customizer-active #navegacion a {
 	color: #003d7a !important;
 	text-decoration: none !important;
-	padding: 6px 10px !important;
-	margin: 0 2px !important;
+	padding: 8px 12px !important;
+	margin: 2px !important;
 	border-radius: 4px !important;
 	transition: all 0.3s ease !important;
-	display: inline-flex !important;
+	display: inline-block !important;
 	align-items: center !important;
 	gap: 4px !important;
 	font-size: 13px !important;
 	font-weight: 500 !important;
+	background: rgba(255, 255, 255, 0.2) !important;
+	white-space: nowrap !important;
 }
 
 body.fciencias-customizer-active #navegacion a:hover {
@@ -100,8 +117,14 @@ body.fciencias-customizer-active #navegacion img {
 body.fciencias-customizer-active #contenido {
 	background: #f9f9f9 !important;
 	margin: 0 !important;
-	padding: 24px !important;
-	min-height: 500px !important;
+	padding: 20px 40px !important;
+	min-height: calc(100vh - 300px) !important;
+	width: 100% !important;
+	box-sizing: border-box !important;
+	display: grid !important;
+	grid-template-columns: 240px 1fr !important;
+	gap: 30px !important;
+	align-items: start !important;
 }
 
 body.fciencias-customizer-active #topinterna {
@@ -110,25 +133,34 @@ body.fciencias-customizer-active #topinterna {
 	font-size: 22px !important;
 	font-weight: 600 !important;
 	color: #ffffff !important;
-	margin-bottom: 24px !important;
+	margin-bottom: 16px !important;
 	border-radius: 4px !important;
 	box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1) !important;
+	width: 100% !important;
+	box-sizing: border-box !important;
+	grid-column: 1 / -1 !important;
 }
 
-/* Login Card */
+/* Login Card & Content Pages */
 body.fciencias-customizer-active .info-estudiantes2 {
 	background: #ffffff !important;
 	border-radius: 8px !important;
 	padding: 40px !important;
 	box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1) !important;
-	max-width: 500px !important;
-	margin: 0 auto !important;
+	width: 100% !important;
+	max-width: 100% !important;
+	margin: 0 !important;
 	border-top: 4px solid #fdb913 !important;
+	box-sizing: border-box !important;
+	grid-column: 1 / -1 !important;
+	display: flex !important;
+	justify-content: center !important;
 }
 
 body.fciencias-customizer-active #info-contenido2 {
-	max-width: 100% !important;
-	margin: 0 auto !important;
+	max-width: 1200px !important;
+	width: 100% !important;
+	margin: 0 !important;
 }
 
 /* Form Styles */
@@ -190,8 +222,7 @@ body.fciencias-customizer-active button,
 body.fciencias-customizer-active .btn,
 body.fciencias-customizer-active input[type="submit"],
 body.fciencias-customizer-active .btn-primary {
-	width: 100% !important;
-	padding: 12px 24px !important;
+	padding: 12px 32px !important;
 	background: linear-gradient(135deg, #fdb913, #ffcc33) !important;
 	border: none !important;
 	border-radius: 4px !important;
@@ -203,6 +234,10 @@ body.fciencias-customizer-active .btn-primary {
 	text-transform: uppercase !important;
 	letter-spacing: 0.5px !important;
 	box-shadow: 0 2px 6px rgba(253, 185, 19, 0.3) !important;
+	display: inline-block !important;
+	width: auto !important;
+	margin: 8px 8px !important;
+	min-width: 140px !important;
 }
 
 body.fciencias-customizer-active button:hover,
@@ -218,6 +253,30 @@ body.fciencias-customizer-active button:active,
 body.fciencias-customizer-active input[type="submit"]:active {
 	transform: translateY(0) !important;
 	box-shadow: 0 2px 4px rgba(253, 185, 19, 0.3) !important;
+}
+
+/* Cancel button - different color */
+body.fciencias-customizer-active
+	input[type="submit"][data-submit-mode="cancel"],
+body.fciencias-customizer-active button[data-submit-mode="cancel"] {
+	background: linear-gradient(135deg, #e0e0e0, #f0f0f0) !important;
+	color: #555555 !important;
+	box-shadow: 0 2px 6px rgba(0, 0, 0, 0.1) !important;
+}
+
+body.fciencias-customizer-active
+	input[type="submit"][data-submit-mode="cancel"]:hover,
+body.fciencias-customizer-active button[data-submit-mode="cancel"]:hover {
+	background: linear-gradient(135deg, #d0d0d0, #e0e0e0) !important;
+	color: #333333 !important;
+	box-shadow: 0 4px 10px rgba(0, 0, 0, 0.15) !important;
+}
+
+/* Login form buttons should still be full width */
+body.fciencias-customizer-active fieldset button,
+body.fciencias-customizer-active fieldset input[type="submit"] {
+	width: 100% !important;
+	margin: 8px 0 !important;
 }
 
 /* Links */
@@ -247,8 +306,11 @@ body.fciencias-customizer-active fieldset a:hover {
 /* Footer */
 body.fciencias-customizer-active #pie-banners {
 	background: linear-gradient(135deg, #003d7a, #0056a3) !important;
-	padding: 16px 24px !important;
+	padding: 16px 40px !important;
 	margin: 0 !important;
+	width: 100% !important;
+	box-sizing: border-box !important;
+	clear: both !important;
 }
 
 body.fciencias-customizer-active #ciencias-en {
@@ -283,10 +345,13 @@ body.fciencias-customizer-active #ciencias-en img {
 body.fciencias-customizer-active #pie-derechos {
 	background: #e8e8e8 !important;
 	color: #555555 !important;
-	padding: 20px 24px !important;
+	padding: 20px 40px !important;
 	text-align: center !important;
 	line-height: 1.7 !important;
 	font-size: 12px !important;
+	width: 100% !important;
+	box-sizing: border-box !important;
+	clear: both !important;
 }
 
 body.fciencias-customizer-active #administrado {
@@ -410,9 +475,7 @@ body.fciencias-customizer-active .menu-interna {
 	border-radius: 4px !important;
 	padding: 20px !important;
 	box-shadow: 0 2px 8px rgba(0, 0, 0, 0.08) !important;
-	float: left !important;
-	width: 220px !important;
-	margin-right: 20px !important;
+	width: 100% !important;
 	margin-bottom: 20px !important;
 	border-top: 3px solid #fdb913 !important;
 }
@@ -476,8 +539,8 @@ body.fciencias-customizer-active .menu-interna li li a:hover {
 /* Main Dashboard Content */
 body.fciencias-customizer-active .info-estudiantes {
 	background: transparent !important;
-	margin-left: 240px !important;
 	overflow: hidden !important;
+	width: 100% !important;
 }
 
 body.fciencias-customizer-active #info-contenido {
@@ -486,18 +549,21 @@ body.fciencias-customizer-active #info-contenido {
 	padding: 30px !important;
 	box-shadow: 0 2px 8px rgba(0, 0, 0, 0.08) !important;
 	border-top: 3px solid #fdb913 !important;
+	width: 100% !important;
+	box-sizing: border-box !important;
 }
 
 /* Apps Grid */
 body.fciencias-customizer-active #apps-container {
-	display: flex !important;
+	display: grid !important;
+	grid-template-columns: repeat(auto-fit, minmax(350px, 1fr)) !important;
 	gap: 30px !important;
-	flex-wrap: wrap !important;
+	width: 100% !important;
 }
 
 body.fciencias-customizer-active .apps {
-	flex: 1 !important;
-	min-width: 300px !important;
+	width: 100% !important;
+	min-width: 0 !important;
 }
 
 body.fciencias-customizer-active .apps h3 {
@@ -577,20 +643,23 @@ body.fciencias-customizer-active div[data-container-type="alerts"] {
 		margin: 2px !important;
 		font-size: 12px !important;
 	}
-	
+
 	body.fciencias-customizer-active #encabezado {
 		flex-direction: column !important;
 		padding: 12px !important;
 	}
-	
+
+	body.fciencias-customizer-active #contenido {
+		grid-template-columns: 1fr !important;
+	}
+
 	body.fciencias-customizer-active .menu-interna {
 		width: 100% !important;
 		margin-bottom: 20px !important;
-		float: none !important;
 	}
-	
+
 	body.fciencias-customizer-active .info-estudiantes {
-		margin-left: 0 !important;
+		width: 100% !important;
 	}
 
 	body.fciencias-customizer-active #apps-container {
@@ -600,7 +669,8 @@ body.fciencias-customizer-active div[data-container-type="alerts"] {
 
 /* Smooth transitions */
 body.fciencias-customizer-active * {
-	transition-property: background-color, border-color, color, box-shadow, transform !important;
+	transition-property: background-color, border-color, color, box-shadow,
+		transform !important;
 	transition-duration: 0.3s !important;
 	transition-timing-function: ease !important;
 }

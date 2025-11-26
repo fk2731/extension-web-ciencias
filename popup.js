@@ -1,6 +1,6 @@
 document.addEventListener("DOMContentLoaded", function () {
 	console.log("Web Ciencias Customizer popup loaded");
-    initializeUI();
+	initializeUI();
 });
 
 function initializeUI() {
@@ -14,7 +14,7 @@ function initializeUI() {
 		githubLink: document.getElementById("github-link"),
 	};
 
-    // pa ver si el sitio es fciencias o ne
+	// pa ver si el sitio es fciencias o ne
 	chrome.tabs.query({ active: true, currentWindow: true }, function (tabs) {
 		const currentTab = tabs[0];
 		const isTargetSite =
@@ -54,12 +54,12 @@ function setupInterface(elements, isTargetSite, currentTab) {
 
 function updateExtensionStatus(elements, enabled) {
 	if (enabled) {
-		elements.statusText.textContent = "Extensión activa";
+		elements.statusText.textContent = "Activa";
 		elements.statusDot.classList.remove("disabled");
 		elements.toggleText.textContent = "Desactivar";
 		elements.toggleButton.className = "btn btn-secondary";
 	} else {
-		elements.statusText.textContent = "Extensión desactivada";
+		elements.statusText.textContent = "Desactivada";
 		elements.statusDot.classList.add("disabled");
 		elements.toggleText.textContent = "Activar";
 		elements.toggleButton.className = "btn btn-primary";

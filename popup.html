@@ -1,7 +1,6 @@
 <!DOCTYPE html>
 <html lang="es">
 
-<!--Esto namas es temporal. No me gusta como se ve, lo cambio despues-->
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
@@ -14,33 +13,22 @@
         }
 
         body {
-            width: 320px;
+            width: 280px;
             font-family: 'Segoe UI', system-ui, sans-serif;
             background: #ffffff;
             color: #333;
         }
 
         .header {
-            background: linear-gradient(135deg, #4a90e2 0%, #357abd 100%);
+            background: #003d7a;
             color: white;
-            padding: 16px;
-            text-align: center;
-        }
-
-        .logo {
-            font-size: 24px;
-            margin-bottom: 8px;
+            padding: 12px 16px;
+            border-bottom: 3px solid #fdb913;
         }
 
         .header h1 {
-            font-size: 18px;
+            font-size: 15px;
             font-weight: 600;
-            margin-bottom: 4px;
-        }
-
-        .subtitle {
-            font-size: 12px;
-            opacity: 0.9;
         }
 
         .content {
@@ -48,19 +36,17 @@
         }
 
         .status {
-            background: #f8f9fa;
-            border: 1px solid #e9ecef;
-            border-radius: 8px;
-            padding: 12px;
-            margin-bottom: 16px;
+            padding: 8px 0;
+            margin-bottom: 12px;
             display: flex;
             align-items: center;
-            gap: 10px;
+            gap: 8px;
+            font-size: 13px;
         }
 
         .status-dot {
-            width: 10px;
-            height: 10px;
+            width: 8px;
+            height: 8px;
             border-radius: 50%;
             background: #28a745;
         }
@@ -69,45 +55,33 @@
             background: #dc3545;
         }
 
-        .status-text {
-            font-size: 14px;
-            font-weight: 500;
-        }
-
         .warning {
             background: #fff3cd;
-            border: 1px solid #ffeaa7;
-            border-radius: 6px;
-            padding: 12px;
-            margin-bottom: 16px;
+            border-left: 3px solid #fdb913;
+            padding: 10px;
+            margin-bottom: 12px;
             display: none;
-            color: #856404;
-            font-size: 13px;
+            font-size: 12px;
+            color: #333;
         }
 
         .warning.show {
             display: block;
         }
 
-        .info-box {
-            background: #e8f4fd;
-            border: 1px solid #bee5eb;
-            border-radius: 6px;
-            padding: 12px;
-            margin-bottom: 16px;
+        .info-text {
             font-size: 12px;
-            color: #0c5460;
+            color: #555;
+            margin-bottom: 12px;
             line-height: 1.4;
         }
 
-        .info-text {
-            margin-bottom: 8px;
-        }
-
         .github-link {
-            color: #4a90e2;
+            color: #003d7a;
             text-decoration: none;
-            font-weight: 500;
+            font-size: 12px;
+            display: block;
+            margin-bottom: 12px;
         }
 
         .github-link:hover {
@@ -121,92 +95,79 @@
         }
 
         .btn {
-            border: none;
-            border-radius: 6px;
-            padding: 10px 16px;
-            font-size: 14px;
-            font-weight: 500;
+            border: 1px solid #ddd;
+            background: white;
+            padding: 8px 12px;
+            font-size: 13px;
             cursor: pointer;
-            transition: all 0.2s ease;
+            transition: background 0.2s;
+        }
+
+        .btn:hover {
+            background: #f5f5f5;
         }
 
         .btn-primary {
-            background: #4a90e2;
+            background: #003d7a;
             color: white;
+            border-color: #003d7a;
         }
 
         .btn-primary:hover {
-            background: #357abd;
-            transform: translateY(-1px);
+            background: #002952;
         }
 
         .btn-secondary {
             background: #6c757d;
             color: white;
+            border-color: #6c757d;
         }
 
         .btn-secondary:hover {
             background: #5a6268;
         }
 
-        .btn-outline {
-            background: transparent;
-            color: #6c757d;
-            border: 1px solid #dee2e6;
-        }
-
-        .btn-outline:hover {
-            background: #f8f9fa;
-        }
-
         .footer {
-            border-top: 1px solid #e9ecef;
-            padding: 12px 16px;
+            border-top: 1px solid #eee;
+            padding: 8px 16px;
             text-align: center;
-            background: #f8f9fa;
-            font-size: 11px;
-            color: #6c757d;
+            font-size: 10px;
+            color: #999;
         }
     </style>
 </head>
 
 <body>
     <div class="header">
-        <div class="logo">🎨</div>
         <h1>Web Ciencias</h1>
-        <div class="subtitle">Personalizador de Estilos</div>
     </div>
 
     <div class="content">
         <div class="status" id="status-section">
             <div class="status-dot" id="status-dot"></div>
-            <div class="status-text" id="status-text">Extensión activa</div>
+            <div class="status-text" id="status-text">Activa</div>
         </div>
 
         <div class="warning" id="warning-section">
-            Esta extensión solo funciona en web.fciencias.unam.mx
+            Solo funciona en web.fciencias.unam.mx
         </div>
 
-        <div class="info-box">
-            <div class="info-text">
-                <strong>Solo estilístico</strong> - No recopilo información personal.
-                Solo cambio la apariencia visual del sitio web.
-            </div>
-            <div>
-                <a href="#" class="github-link" id="github-link">Ver código fuente</a>
-            </div>
+        <div class="info-text">
+            Solo estilístico - No recopilo información personal
         </div>
+
+        <a href="#" class="github-link" id="github-link">Código fuente</a>
 
         <div class="controls">
             <button class="btn btn-primary" id="toggle-btn">
                 <span id="toggle-text">Desactivar</span>
             </button>
-            <button class="btn btn-outline" id="reset-btn">Restablecer</button>
+            <button class="btn" id="reset-btn">Restablecer</button>
         </div>
     </div>
 
     <div class="footer">
-        v1.0 • Solo para web.fciencias.unam.mx
+        v1.0
     </div>
 
     <script src="popup.js"></script>
