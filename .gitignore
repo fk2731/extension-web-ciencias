@@ -1,7 +1,8 @@
 ﻿# Ignore all markdown files except README
 *.md
 !README.md
+!PRIVACY_POLICY.md
 
-# Ignore all HTML files except popup.html  
+# Ignore all HTML files except popup.html
 *.html
 !popup.html
