@@ -1,4 +1,4 @@
-document.addEventListener("DOMContentLoaded", function () {
+document.addEventListener("DOMContentLoaded", function() {
 	console.log("Web Ciencias Customizer popup loaded");
 	initializeUI();
 });
@@ -12,16 +12,21 @@ function initializeUI() {
 		resetButton: document.getElementById("reset-btn"),
 		warningSection: document.getElementById("warning-section"),
 		githubLink: document.getElementById("github-link"),
+		themeSwitcher: document.getElementById("theme-toggle-checkbox"),
 	};
 
 	// pa ver si el sitio es fciencias o ne
-	chrome.tabs.query({ active: true, currentWindow: true }, function (tabs) {
+	chrome.tabs.query({ active: true, currentWindow: true }, function(tabs) {
 		const currentTab = tabs[0];
 		const isTargetSite =
 			currentTab.url && currentTab.url.includes("web.fciencias.unam.mx");
 
 		setupInterface(elements, isTargetSite, currentTab);
 		setupEventListeners(elements, isTargetSite);
+
+		chrome.storage.sync.get(["darkMode"], function(result) {
+			elements.themeSwitcher.checked = result.darkMode || false;
+		});
 	});
 }
 
@@ -33,7 +38,7 @@ function setupInterface(elements, isTargetSite, currentTab) {
 		chrome.tabs.sendMessage(
 			currentTab.id,
 			{ action: "getStatus" },
-			function (response) {
+			function(response) {
 				if (chrome.runtime.lastError) {
 					console.log("Content script not ready, assuming enabled");
 					updateExtensionStatus(elements, true);
@@ -42,7 +47,7 @@ function setupInterface(elements, isTargetSite, currentTab) {
 				} else {
 					updateExtensionStatus(elements, true);
 				}
-			}
+			},
 		);
 	} else {
 		elements.warningSection.classList.add("show");
@@ -67,19 +72,25 @@ function updateExtensionStatus(elements, enabled) {
 }
 
 function setupEventListeners(elements, isTargetSite) {
-	elements.toggleButton.addEventListener("click", function () {
+	elements.toggleButton.addEventListener("click", function() {
 		handleToggleClick(elements, isTargetSite);
 	});
 
-	elements.resetButton.addEventListener("click", function () {
+	elements.resetButton.addEventListener("click", function() {
 		handleResetClick(elements, isTargetSite);
 	});
 
-	elements.githubLink.addEventListener("click", function (e) {
+	elements.githubLink.addEventListener("click", function(e) {
 		e.preventDefault();
 		chrome.tabs.create({
 			url: "https://github.com/dvd-22/extension-web-ciencias/",
 		});
+	});
+
+	elements.themeSwitcher.addEventListener("change", function(e) {
+		const isDark = e.target.checked;
+
+		handleThemeSwitcherChange(isDark, isTargetSite);
 	});
 }
 
@@ -90,20 +101,20 @@ function handleToggleClick(elements, isTargetSite) {
 		return;
 	}
 
-	chrome.tabs.query({ active: true, currentWindow: true }, function (tabs) {
+	chrome.tabs.query({ active: true, currentWindow: true }, function(tabs) {
 		chrome.tabs.sendMessage(
 			tabs[0].id,
 			{ action: "toggle" },
-			function (response) {
+			function(response) {
 				if (chrome.runtime.lastError) {
 					console.error(
 						"Error communicating with content script:",
-						chrome.runtime.lastError
+						chrome.runtime.lastError,
 					);
 				} else if (response) {
 					updateExtensionStatus(elements, response.enabled);
 				}
-			}
+			},
 		);
 	});
 }
@@ -113,15 +124,29 @@ function handleResetClick(elements, isTargetSite) {
 		return;
 	}
 
-	chrome.tabs.query({ active: true, currentWindow: true }, function (tabs) {
+	chrome.tabs.query({ active: true, currentWindow: true }, function(tabs) {
 		chrome.tabs.sendMessage(
 			tabs[0].id,
 			{ action: "reset" },
-			function (response) {
+			function(response) {
 				if (!chrome.runtime.lastError) {
 					updateExtensionStatus(elements, true);
 				}
-			}
+			},
 		);
+	});
+}
+
+function handleThemeSwitcherChange(isDark, isTargetSite) {
+	if (!isTargetSite) {
+		chrome.storage.set({ darkMode: isDark });
+		return;
+	}
+
+	chrome.tabs.query({ active: true, currentWindow: true }, function(tabs) {
+		chrome.tabs.sendMessage(tabs[0].id, {
+			action: "setTheme",
+			isDark: isDark,
+		});
 	});
 }

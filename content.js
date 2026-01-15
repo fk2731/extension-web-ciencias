@@ -4,9 +4,13 @@ let extensionEnabled = true;
 let originalStyles = null;
 
 function initializeExtension() {
-	chrome.storage.sync.get(["extensionEnabled"], function (result) {
+	chrome.storage.sync.get(["extensionEnabled", "darkMode"], function(result) {
 		extensionEnabled = result.extensionEnabled !== false; // Default to true
 
+		if (result.darkMode) {
+			console.log("Dark mode activted");
+			document.body.classList.add("dark");
+		}
 		if (extensionEnabled) {
 			console.log("Extension is enabled, applying custom styles");
 			applyCustomStyles();
@@ -23,14 +27,14 @@ function applyCustomStyles() {
 
 	document.body.classList.add("fciencias-customizer-active");
 
-    // aqui va el codigo por si quiero hacer mas cosas con js
+	// aqui va el codigo por si quiero hacer mas cosas con js
 	console.log("Custom styles applied");
 }
 
 function removeCustomStyles() {
 	document.body.classList.remove("fciencias-customizer-active");
 
-    // aqui quito el codigo extra que haya puesto
+	// aqui quito el codigo extra que haya puesto
 	console.log("Custom styles removed");
 }
 
@@ -47,7 +51,7 @@ function restoreOriginalStyles() {
 	}
 }
 
-chrome.runtime.onMessage.addListener(function (request, sender, sendResponse) {
+chrome.runtime.onMessage.addListener(function(request, sender, sendResponse) {
 	console.log("Message received:", request);
 
 	switch (request.action) {
@@ -75,6 +79,16 @@ chrome.runtime.onMessage.addListener(function (request, sender, sendResponse) {
 
 		case "getStatus":
 			sendResponse({ enabled: extensionEnabled });
+			break;
+
+		case "setTheme":
+			if (request.isDark) {
+				document.body.classList.add("dark");
+			} else {
+				document.body.classList.remove("dark");
+			}
+			chrome.storage.sync.set({ darkMode: request.isDark });
+			sendResponse({ success: true });
 			break;
 
 		default:
